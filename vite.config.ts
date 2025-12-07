@@ -5,21 +5,21 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: "src/main.ts", 
+      entry: "src/main.ts",
       name: "ChatWidget",
       fileName: "chat-widget",
-      formats: ["iife"], 
+      formats: ["iife"],
     },
     rollupOptions: {
       output: {
         globals: {
           react: "React",
-          "react-dom": "ReactDOM"
-        }
-      }
-    }
+          "react-dom": "ReactDOM",
+        },
+      },
+    },
   },
   define: {
-    'process.env.NODE_ENV': '"production"'
-  }
+    "process.env.NODE_ENV": '"production"',
+  },
 });
