@@ -8,7 +8,7 @@ export default defineConfig({
       entry: "src/main.ts",
       name: "ChatWidget",
       fileName: "chat-widget",
-      formats: ["iife"],
+      formats: ["iife"], // single global bundle
     },
     rollupOptions: {
       output: {
@@ -20,6 +20,7 @@ export default defineConfig({
     },
   },
   define: {
-    "process.env.NODE_ENV": '"production"',
+    "process.env": {}, 
+    "process.env.NODE_ENV": '"production"', 
   },
 });
