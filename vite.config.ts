@@ -1,3 +1,4 @@
+// vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
@@ -5,13 +6,13 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: "src/main.ts",
+      entry: "src/main.ts",      // your widget entry
       name: "ChatWidget",
       fileName: "chat-widget",
-      formats: ["iife"],
+      formats: ["iife"],          // global IIFE
     },
     rollupOptions: {
-      external: ["react", "react-dom"], // Use CDN versions
+      external: [],              // bundle React + ReactDOM inside
       output: {
         globals: {
           react: "React",
@@ -21,8 +22,8 @@ export default defineConfig({
     },
   },
   define: {
-    // Replace all process.env references with empty object
-    "process.env": {},
-    "process": {}, // ✅ This prevents "process is not defined"
+    "process.env": {},          // prevent process errors
+    "process.env.NODE_ENV": '"production"',
+    "process": {},              // fallback for any process references
   },
 });

@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Chat Widget Test</title>
-  <!-- React & ReactDOM from CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script>
+  // Make process a global object if it doesn't exist
+  window.process = window.process || {};
+  window.process.env = window.process.env || {};
+  window.process.env.NODE_ENV = "dev";
+</script>
+  
 </head>
 <body>
   <h1>Testing Chat Widget</h1>

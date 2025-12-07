@@ -9,7 +9,7 @@ interface MountOptions {
 export function mountWidget(options: MountOptions = {}) {
   const { root, shadow } = createShadowRoot();
 
-  // Inject Tailwind CSS inside Shadow DOM
+  // Inject Tailwind CSS into Shadow DOM
   const styleLink = document.createElement("link");
   styleLink.rel = "stylesheet";
   styleLink.href = "https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css";
