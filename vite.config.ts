@@ -10,6 +10,7 @@ export default defineConfig({
       fileName: "chat-widget",
       formats: ["iife"],
     },
+    
     rollupOptions: {
       external: [],
       output: {
@@ -23,9 +24,13 @@ export default defineConfig({
     target: 'es2020',
   },
   define: {
+    'window.process.env': JSON.stringify({ NODE_ENV: 'production' }),
     'process.env': JSON.stringify({ NODE_ENV: 'production' }),
     global: 'globalThis',
     // React 18+ fix - full process shim
+    window: {process: JSON.stringify({
+      env: { NODE_ENV: 'production' }
+    }),},
     process: JSON.stringify({
       env: { NODE_ENV: 'production' }
     }),
