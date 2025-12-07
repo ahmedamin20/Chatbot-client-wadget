@@ -8,7 +8,6 @@ interface AppProps {
 
 export default function App({ appId }: AppProps) {
   const [open, setOpen] = useState(false);
-
   return (
     <>
       <Launcher onClick={() => setOpen(!open)} />

@@ -23,14 +23,9 @@ export default defineConfig({
     // Critical: Target modern browsers that support Shadow DOM
     target: 'es2020',
   },
-  define: {
-    global: {
-      process: { env: { NODE_ENV: 'production' } }
+   define: {
+    "process.env": {
+      NODE_ENV: JSON.stringify("production"), // or import.meta.env.MODE
     },
-    'process.env': JSON.stringify({ NODE_ENV: 'production' }),
-    // React 18+ fix - full process shim
-    process: JSON.stringify({
-      env: { NODE_ENV: 'production' }
-    }),
   },
 });
