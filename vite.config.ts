@@ -21,11 +21,10 @@ export default defineConfig({
     },
   },
   define: {
-    global: "globalThis",  // Also fixes occasional "global is not defined"
-    process: {
-      env: {
-        NODE_ENV: '"production"',
-      },
-    },
+    // Stringified JSON for process.env (React expects this format)
+    'process.env': JSON.stringify({ NODE_ENV: 'production' }),
+    // Simple string replacements only
+    'process.env.NODE_ENV': JSON.stringify('production'),
+    global: 'globalThis',
   },
 });
