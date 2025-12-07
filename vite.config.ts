@@ -19,13 +19,15 @@ export default defineConfig({
         },
       },
     },
+    // Critical: Target modern browsers that support Shadow DOM
+    target: 'es2020',
   },
-  
   define: {
-    // Stringified JSON for process.env (React expects this format)
     'process.env': JSON.stringify({ NODE_ENV: 'production' }),
-    // Simple string replacements only
-    'process.env.NODE_ENV': JSON.stringify('production'),
     global: 'globalThis',
+    // React 18+ fix - full process shim
+    process: JSON.stringify({
+      env: { NODE_ENV: 'production' }
+    }),
   },
 });
