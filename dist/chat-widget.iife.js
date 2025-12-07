@@ -1,5 +1,13 @@
-(function(){"use strict";var oh={exports:{}},Qc={exports:{}},qu={exports:{}};qu.exports;var sh;function xS(){return sh||(sh=1,function(J,A){/**
- * @license React
+(function(){"use strict";var oh={exports:{}},Qc={exports:{}},qu={exports:{}};qu.exports;var sh;function xS(){return sh||(sh=1,function(J,A){
+  let process = {
+    env: {
+      NODE_ENV: A
+    }
+  }
+  J.exports = process;
+  /**
+ 
+  * @license React
  * react.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
