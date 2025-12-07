@@ -1,6 +1,8 @@
 import { mountWidget } from "./bootstrap/mountWidget";
 
-// Auto start when script is loaded
+// Auto mount on script load
 if (typeof window !== "undefined") {
-  mountWidget();
+  const scriptTag = document.currentScript as HTMLScriptElement;
+  const appId = scriptTag?.dataset?.appId || "default";
+  mountWidget({ appId });
 }

@@ -2,7 +2,11 @@ import { useState } from "react";
 import { Launcher } from "./modules/launcher/LauncherView";
 import { ChatView } from "./modules/chat/chatView";
 
-export default function App() {
+interface AppProps {
+  appId?: string;
+}
+
+export default function App({ appId }: AppProps) {
   const [open, setOpen] = useState(false);
 
   return (

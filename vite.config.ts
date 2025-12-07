@@ -5,10 +5,10 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: "src/main.ts",
+      entry: "src/main.ts",  // entry point of your widget
       name: "ChatWidget",
       fileName: "chat-widget",
-      formats: ["iife"], // single global bundle
+      formats: ["iife"], // single JS bundle for global usage
     },
     rollupOptions: {
       output: {
@@ -20,7 +20,7 @@ export default defineConfig({
     },
   },
   define: {
-    "process.env": {}, 
-    "process.env.NODE_ENV": '"production"', 
+    "process.env": {}, // replace all process.env references
+    "process.env.NODE_ENV": '"production"',
   },
 });

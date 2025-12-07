@@ -2,15 +2,19 @@ import ReactDOM from "react-dom/client";
 import App from "../App";
 import { createShadowRoot } from "./shadowDom";
 
-export function mountWidget() {
+interface MountOptions {
+  appId?: string;
+}
+
+export function mountWidget(options: MountOptions = {}) {
   const { root, shadow } = createShadowRoot();
 
-  // Inject CSS inside Shadow DOM
-  const style = document.createElement("style");
-  style.textContent = `
-    :host { all: initial; }
-  `;
-  shadow.appendChild(style);
+  // Inject Tailwind CSS inside Shadow DOM
+  const styleLink = document.createElement("link");
+  styleLink.rel = "stylesheet";
+  styleLink.href = "https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css";
+  shadow.appendChild(styleLink);
 
-  ReactDOM.createRoot(root).render(<App />);
+  // Mount React app
+  ReactDOM.createRoot(root).render(<App {...options} />);
 }
