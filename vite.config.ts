@@ -20,6 +20,7 @@ export default defineConfig({
       },
     },
   },
+  
   define: {
     // Stringified JSON for process.env (React expects this format)
     'process.env': JSON.stringify({ NODE_ENV: 'production' }),
