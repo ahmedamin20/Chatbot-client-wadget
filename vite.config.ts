@@ -17,6 +17,8 @@ export default defineConfig({
     target: "es2020",
   },
   define: {
-    "process.env.NODE_ENV": JSON.stringify("production"),
-  },
+  "process.env.NODE_ENV": JSON.stringify("production"),
+  "process": JSON.stringify({ env: { NODE_ENV: "production" } })
+}
+
 });

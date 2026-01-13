@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Chat Widget Test</title>
-  <script>
-  // Make process a global object if it doesn't exist
-  window.process = window.process || {};
-  window.process.env = window.process.env || {};
-  window.process.env.NODE_ENV = "dev";
-</script>
-  
-</head>
-<body>
-  <h1>Testing Chat Widget</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chat Widget Test</title>
+    <script>
+      // Make process a global object if it doesn't exist
+      window.process = window.process || {};
+      window.process.env = window.process.env || {};
+      window.process.env.NODE_ENV = "dev";
+    </script>
+  </head>
+  <body>
+    <h1>Testing Chat Widget</h1>
 
-  <!-- Your chat widget plugin -->
-  <!-- <script 
-    src="https://cdn.jsdelivr.net/gh/ahmedamin20/Chatbot-client-wadget@main/dist/chat-widget.iife.js" 
-    data-app-id="test">
-  </script> -->
-  <script 
-    src="/dist/chat-widget.iife.js" 
-    data-app-id="test">
-  </script>
-</body>
+    <!-- Your chat widget plugin -->
+    <script src="https://cdn.jsdelivr.net/gh/ahmedamin20/Chatbot-client-wadget@main/dist/chat-widget.iife.js?force=1"></script>
+
+
+    <!-- <script src="/dist/chat-widget.iife.js" data-app-id="test"></script> -->
+  </body>
 </html>
