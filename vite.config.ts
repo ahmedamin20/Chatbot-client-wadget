@@ -10,13 +10,22 @@ export default defineConfig({
       fileName: "chat-widget",
       formats: ["iife"],
     },
+    
     rollupOptions: {
-      // ✅ React MUST be bundled
       external: [],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
     },
-    target: "es2020",
+    // Critical: Target modern browsers that support Shadow DOM
+    target: 'es2020',
   },
-  define: {
-    "process.env.NODE_ENV": JSON.stringify("production"),
+   define: {
+    "process.env": {
+      NODE_ENV: JSON.stringify("production"), // or import.meta.env.MODE
+    },
   },
 });
