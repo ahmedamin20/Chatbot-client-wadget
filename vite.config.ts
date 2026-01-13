@@ -11,15 +11,19 @@ export default defineConfig({
       formats: ["iife"],
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime"
+      ],
       output: {
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
+          "react/jsx-runtime": "jsxRuntime"
         },
       },
     },
-    target: "es2020",
+    target: "es2018",
   },
 });
-

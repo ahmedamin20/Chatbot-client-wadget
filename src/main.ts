@@ -1,8 +1,18 @@
 import { mountWidget } from "./bootstrap/mountWidget";
 
-// Auto-mount on script load
-if (typeof window !== "undefined" && document.currentScript !== undefined ) {
-  const scriptTag = document.currentScript as HTMLScriptElement;
+function safeMount() {
+  const scriptTag = document.currentScript as HTMLScriptElement | null;
   const appId = scriptTag?.dataset?.appId || "default";
   mountWidget({ appId });
+}
+
+// 🔑 Delay mounting until the call stack is clean
+if (typeof window !== "undefined") {
+  if (document.readyState === "complete") {
+    queueMicrotask(safeMount);
+  } else {
+    window.addEventListener("load", () => {
+      queueMicrotask(safeMount);
+    });
+  }
 }
