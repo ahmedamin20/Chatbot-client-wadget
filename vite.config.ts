@@ -11,14 +11,15 @@ export default defineConfig({
       formats: ["iife"],
     },
     rollupOptions: {
-      // ✅ React MUST be bundled
-      external: [],
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
     },
     target: "es2020",
   },
-  define: {
-  "process.env.NODE_ENV": JSON.stringify("production"),
-  "process": JSON.stringify({ env: { NODE_ENV: "production" } })
-}
-
 });
+
